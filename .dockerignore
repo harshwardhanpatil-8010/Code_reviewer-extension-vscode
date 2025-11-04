@@ -1,0 +1,12 @@
+# Ignore dependencies
+node_modules
+
+# Ignore build artifacts
+*.vsix
+
+# Ignore local development configs
+.vscode
+
+# Ignore OS-specific files
+.DS_Store
+npm-debug.log

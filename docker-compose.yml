@@ -1,0 +1,18 @@
+# This Docker Compose file simplifies the build process.
+# It runs the build and places the output artifact (.vsix file) 
+# into a local `./dist` directory.
+#
+# Usage: docker-compose up --build
+
+version: '3.8'
+
+services:
+  build:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      # Mount a local directory to retrieve the build artifact
+      - ./dist:/app/dist
+    # Override the command to ensure the output is placed in the mounted volume
+    command: sh -c "vsce package -o dist/"
